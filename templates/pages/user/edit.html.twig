@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	SymRecipe - Connexion
+{% endblock %}
+
+{% block body %}
+	<section class="vh-100">
+		<div class="container-fluid h-custom">
+			<div class="row d-flex justify-content-center align-items-center h-100 mt-5">
+				<div class="col-md-6 col-lg-4 col-xl-3">
+					{% for message in app.flashes('warning') %}
+						<div class="alert alert-warning mt-4">
+							{{ message }}
+						</div>
+					{% endfor %}
+					{{ form(form)}}
+					</div>
+					<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+						<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endblock %}
+	{% block footer %}{% endblock %}
