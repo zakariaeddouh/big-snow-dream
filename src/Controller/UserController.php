@@ -38,7 +38,7 @@ class UserController extends AbstractController
                 $manager->persist($user);
                 $manager->flush();
 
-                return $this->redirectToRoute('recipe_index');
+                return $this->redirectToRoute('user_edit', ['id' => $user->getId()]);
             } else {
                 $this->addFlash(
                     'warning',

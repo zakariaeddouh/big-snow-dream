@@ -22,7 +22,7 @@ class UserPasswordType extends AbstractType
                     ],
                     'label' => 'Mot de passe',
                     'label_attr' => [
-                        'class' => 'form-label  mt-4'
+                        'class' => 'form-label'
                     ]
                 ],
                 'second_options' => [
