@@ -14,54 +14,58 @@
 				<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 					<form name="registration" method="post">
 						<div class="form-outline mb-4">
-							{{ form_widget(form.fullName) }}
 							<label class="form-label" for="typeText">Nom et prénom</label>
-							<div class="form-error">
+							{{ form_widget(form.fullName) }}
+							<div class="form-error text-danger">
 								{{ form_errors(form.fullName) }}
 							</div>
 						</div>
 
 						<div class="form-outline mb-4">
-							{{ form_widget(form.pseudo) }}
 							<label class="form-label" for="typeText">Pseudo (Facultatif)</label>
-							<div class="form-error">
+							{{ form_widget(form.pseudo) }}
+							<div class="form-error text-danger">
 								{{ form_errors(form.pseudo) }}
 							</div>
 						</div>
 
 						<div class="form-outline mb-4">
-							{{ form_widget(form.email) }}
 							<label class="form-label" for="typeText">Adresse email</label>
-							<div class="form-error">
+							{{ form_widget(form.email) }}
+							<div class="form-error text-danger">
 								{{ form_errors(form.email) }}
 							</div>
 						</div>
 
 						<div class="form-outline mb-4">
-							{{ form_widget(form.plainPassword.first) }}
 							<label class="form-label" for="typeText">Mot de passe</label>
-							<div class="form-error">
+							{{ form_widget(form.plainPassword.first) }}
+							<div class="form-error text-danger">
 								{{ form_errors(form.plainPassword.first) }}
 							</div>
 						</div>
 
 						<div class="form-outline mb-4">
-							{{ form_widget(form.plainPassword.second) }}
 							<label class="form-label" for="typeText">Confirmation du mot de passe</label>
-							<div class="form-error">
+							{{ form_widget(form.plainPassword.second) }}
+							<div class="form-error text-danger">
 								{{ form_errors(form.plainPassword.second) }}
 							</div>
 						</div>
 
 						{{ form_row(form._token) }}
-						<button type="submit" id="registration_submit" name="registration[submit]" class="btn btn-primary btn-lg btn-block mt-4" label="Mot de passe">S'inscrire</button>
+						<div class="d-grid gap-2">
+							<button type="submit" id="registration_submit" name="registration[submit]" class="btn btn-primary mt-4" label="Mot de passe">S'inscrire</button>
+						</div>
 					</form>
 					<div class="divider d-flex align-items-center my-4">
-						<p class="text-center fw-bold mx-3 mb-0 text-muted">OU</p>
+						<p class="text-center fw-bold mx-3 mb-0">OU</p>
 					</div>
-					<a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!" role="button">
-						<i class="fab fa-facebook-f me-2"></i>Continuer avec Facebook
-					</a>
+					<div class="d-grid gap-2">
+						<a class="btn btn-primary active" href="#!" role="button">
+							<i class="bi bi-facebook me-2"></i>Continuer avec Facebook
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>

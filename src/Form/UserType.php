@@ -26,7 +26,7 @@ class UserType extends AbstractType
                 ],
                 'label' => 'Nom / Prénom',
                 'label_attr' => [
-                    'class' => 'form-label  mt-4'
+                    'class' => 'form-label'
                 ],
                 'constraints' => [
                     new NotBlank(),
