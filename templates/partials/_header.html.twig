@@ -1,55 +1,46 @@
-<nav
-	class="navbar navbar-expand-lg navbar-light bg-light">
-	<div
-		class="container-fluid">
-		<button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<i class="fas fa-bars"></i>
-		</button>
-		<div
-			class="collapse navbar-collapse" id="navbarSupportedContent">
-			<a class="navbar-brand mt-2 mt-lg-0" href="#">
-				<img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15" alt="MDB Logo" loading="lazy"/>
-			</a>
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-					<a class="nav-link" href="#">Dashboard</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Team</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Projects</a>
-				</li>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white border-bottom">
+	<a class="navbar-brand" href="{{ path('home_index') }}">ABCDE</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('home_index') }}">Articles</a>
+			</li>
+		</ul>
+		<div class="d-flex">
+			<ul class="navbar-nav me-auto">
+				{% if app.user %}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle alternate" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="icon is-tri">
+								<i class="bi bi-person"></i>
+							</span>
+							<span class="text is-tri">Zakaria</span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{{ path('user_edit', {id : app.user.id}) }}">Modifier mes informations</a>
+							<a class="dropdown-item" href="{{ path('user_edit_password', {id : app.user.id}) }}">Modifier mon mot de passe</a>
+							<div class="dropdown-divider"></div>
+							{% if 'ROLE_ADMIN' in app.user.roles %}
+								<a class="dropdown-item" href="{{ path('home_index') }}">Administration</a>
+								<div class="dropdown-divider"></div>
+							{% endif %}
+							<a class="dropdown-item" href="{{ path('security_logout') }}">Déconnexion</a>
+						</div>
+					</li>
+				{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('security_login') }}">Connexion
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('security_registration') }}">Inscription
+						</a>
+					</li>
+				{% endif %}
 			</ul>
-		</div>
-		<div
-			class="d-flex align-items-center">
-			<a class="text-reset me-3" href="#">
-				<i class="fas fa-shopping-cart"></i>
-			</a>
-			{% if app.user %}
-			<div class="dropdown">
-				<a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-					<img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy"/>
-				</a>
-				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-					<li>
-						<a class="dropdown-item" href="#">Mon profil</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="{{ path('user_edit', {id : app.user.id}) }}">Modifier mes informations</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="{{ path('user_edit_password', {id : app.user.id}) }}">Modifier mon mot de passe</a>
-					</li>
-					<li><hr class="dropdown-divider"></li>
-					<li>
-						<a class="dropdown-item" href="{{ path('security_logout') }}">Déconnexion</a>
-					</li>
-				</ul>
-			</div>
-			{% else %}
-			{% endif %}
 		</div>
 	</div>
 </nav>

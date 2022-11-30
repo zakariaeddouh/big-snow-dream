@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block body %}
-	<section class="vh-100">
-		<div class="container-fluid h-custom">
-			<div class="row d-flex justify-content-center align-items-center h-100">
-				<div class="col-md-9 col-lg-6 col-xl-5">
+	<section class="py-5">
+		<div class="container my-4">
+			<div class="row">
+				<div class="col-lg-7 my-5">
 					<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image">
 				</div>
-				<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+				<div class="col-lg-5">
 					<form name="registration" method="post">
 						<div class="form-outline mb-4">
 							<label class="form-label" for="typeText">Nom et prénom</label>
@@ -45,7 +45,7 @@
 							</div>
 						</div>
 
-						<div class="form-outline mb-4">
+						<div class="form-outline">
 							<label class="form-label" for="typeText">Confirmation du mot de passe</label>
 							{{ form_widget(form.plainPassword.second) }}
 							<div class="form-error text-danger">
@@ -54,21 +54,13 @@
 						</div>
 
 						{{ form_row(form._token) }}
-						<div class="d-grid gap-2">
+						<div class="d-flex justify-content-around align-items-center">
 							<button type="submit" id="registration_submit" name="registration[submit]" class="btn btn-primary mt-4" label="Mot de passe">S'inscrire</button>
 						</div>
 					</form>
-					<div class="divider d-flex align-items-center my-4">
-						<p class="text-center fw-bold mx-3 mb-0">OU</p>
-					</div>
-					<div class="d-grid gap-2">
-						<a class="btn btn-primary active" href="#!" role="button">
-							<i class="bi bi-facebook me-2"></i>Continuer avec Facebook
-						</a>
-					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 {% endblock %}
-{% block footer %}{% endblock %}
+

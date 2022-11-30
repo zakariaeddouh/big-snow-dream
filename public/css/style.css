@@ -1,23 +1,19 @@
-.divider:after,
-.divider:before {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #eee;
+.alternate {
+    position: static;
+    display: flex;
+    align-items: center;
+    background-color: #25465f;
+    color: #fff;
+    height: 2rem;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    box-shadow: 0 0.2rem 0.6rem 0 rgb(175 175 175 / 50%);
+    margin-left: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 1.2rem;
+    max-width: 170px;
 }
 
-.h-custom {
-    height: calc(100% - 73px);
-}
-
-@media (max-width: 450px) {
-    .h-custom {
-        height: 100%;
-    }
-}
-
-.bg-1 {
-    background: url("../images/22.jpg") no-repeat 50% 50%;
-    background-size: cover;
-    position: relative;
+body {
+    margin-top: 70px;
 }

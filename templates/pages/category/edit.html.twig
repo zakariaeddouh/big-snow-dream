@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	SymRecipe - Connexion
+{% endblock %}
+
+{% block body %}
+	<section class="py-5" id="features">
+		<div class="container px-5 my-4">
+			<div class="row gx-5">
+				<div class="col-lg-4 mb-5 mb-lg-0">
+					{% include "pages/partials/_menu.html.twig" %}
+				</div>
+				<div class="col-lg-8 mb-5 mb-lg-0">
+					{{ include('pages/category/_form.html.twig', {'button_label': 'Modifier la catégorie'}) }}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+{% block footer %}{% endblock %}
