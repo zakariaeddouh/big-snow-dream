@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	SymRecipe - Connexion
+{% endblock %}
+
+{% block body %}
+	<section class="py-5" id="features">
+		<div class="container px-5 my-4">
+			<div class="row gx-5">
+				<div class="col-lg-4 mb-5 mb-lg-0">
+					{% include "pages/partials/_menu.html.twig" %}
+				</div>
+				<div class="col-lg-8 mb-5 mb-lg-0">
+					{% for message in app.flashes('success') %}
+						<div class="alert alert-success">
+							{{ message }}
+						</div>
+					{% endfor %}
+					<div class="row">
+						{% for trick in tricks %}
+							<div class="col-sm-6 mb-4">
+								<div class="card">
+									<img src="..." class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">{{ trick.name }}</h5>
+										<p class="card-text">{{ trick.description }}</p>
+                                        <p>
+                                        {% for categorie in trick.categories %}
+                                            <span class="badge rounded-pill bg-primary">{{ categorie.name }}</span>
+                                            {% endfor %}
+                                        </p>
+										<a href="{{ path('app_trick_edit', {'id': trick.id}) }}" class="btn btn-outline-primary btn-sm">
+											<i class="bi bi-pencil-square"></i>
+										</a>
+										<a href="{{ path('app_trick_delete', {'id': trick.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');" class="btn btn-outline-danger btn-sm">
+											<i class="bi bi-trash"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						{% else %}
+							no records found
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+{% block footer %}{% endblock %}
